@@ -1,0 +1,31 @@
+<div class="card card-primary " [style.width.px]="640"[style.margin-top.px]="110">
+  <div class="card-header bg-primary">
+    <h4 class="card-header-title">Book List</h4>
+  </div>
+  <div class="card-body">
+    <button class="btn btn-danger" type="button" [routerLink]="'/add'">Add Book</button>
+    <table class="table table-bordered table-hover" [style.margin-top.px]="10" [style.width.px]="600">
+        <thead>
+            <tr>
+                <td>#</td>
+                <td>Name</td>
+                <td>Author</td>
+                <td>Description</td>
+                <td>Actions</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of bookList;let i = index">
+                <td>{{i+1}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.author}}</td>
+                <td>{{item.description}}</td>
+                <td>
+                    <button [routerLink]="'/edit/'+ item.id" class="btn btn-success" type="button" [style.margin-right.px]="10">Edit</button>    
+                    <button class="btn btn-danger" type="button" [routerLink]="'/delete/'+ item.id" >Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+  </div>
+</div>
